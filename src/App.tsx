@@ -113,7 +113,7 @@ function App() {
   return (
     <div className="app">
       <header className="game-header">
-        <h1 className="game-title">🎴 Guess That Flavor Text</h1>
+        <h1 className="game-title">Guess That Flavor Text</h1>
         <div className="score-display">Score: {gameState.score}</div>
       </header>
 
