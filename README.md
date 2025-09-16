@@ -1,3 +1,25 @@
+# 🎴 Guess That Flavor Text
+
+  A fun Pokemon card guessing game where players identify Pokemon cards based on their flavor text. Features a sleek
+  dark theme, lifeline system, and responsive design.
+
+  Features
+
+  - Flavor Text Challenge: Guess Pokemon cards from their descriptive text
+  - Lifeline System: Use hints (Set, Stage, Attack) at the cost of points
+  - Scoring: Earn up to 4 points per correct guess
+  - Dark Theme: Modern, eye-friendly interface
+  - Responsive Design: Works on desktop and mobile
+  - Real Pokemon Data: Fetches actual Pokemon card information
+
+  Built with React, TypeScript, and Vite.
+
+  Inspiration
+
+  This project was inspired by the https://www.youtube.com/@UncommonEnergyPodcast and their discussions about Pokemon      
+  TCG. This is a personal project and is not affiliated with or endorsed by the podcast.
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
