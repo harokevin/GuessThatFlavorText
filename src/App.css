@@ -2,8 +2,6 @@
   box-sizing: border-box;
 }
 
-@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
-
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -46,18 +44,12 @@ body {
 
 .game-title {
   margin: 0;
-  font-family: 'Pokemon Solid', cursive;
   font-size: 2.5rem;
-  font-weight: normal;
-  color: #ffcb05;
-  text-shadow: 2px 2px 0px #3563e0,
-               -1px -1px 0px #3563e0,
-               1px -1px 0px #3563e0,
-               -1px 1px 0px #3563e0,
-               1px 1px 0px #3563e0;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   text-align: center;
   flex: 1;
-  letter-spacing: 2px;
 }
 
 .score-display {
