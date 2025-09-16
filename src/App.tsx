@@ -45,7 +45,6 @@ function App() {
   const fetchNewCard = async () => {
     setLoading(true);
     try {
-      debugger;
       const response = await fetch('https://9jjjfskz4g.execute-api.us-west-2.amazonaws.com/dev/');
       const card: PokemonCard = await response.json();
       setGameState(prev => ({
@@ -57,10 +56,8 @@ function App() {
         showCard: false
       }));
     } catch (error) {
-      debugger;
       console.error('Failed to fetch card:', error);
     } finally {
-      debugger;
       setLoading(false);
     }
   };
