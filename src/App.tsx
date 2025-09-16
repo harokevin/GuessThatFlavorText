@@ -32,7 +32,7 @@ interface GameState {
 
 function App() {
   const [gameState, setGameState] = useState<GameState>({
-    score: 3,
+    score: 4,
     currentCard: null,
     guess: '',
     usedLifelines: { set: false, stage: false, attack: false },
