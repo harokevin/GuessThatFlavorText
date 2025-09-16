@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
 
 body {
   margin: 0;
@@ -46,19 +46,18 @@ body {
 
 .game-title {
   margin: 0;
-  font-family: 'Fredoka One', cursive;
+  font-family: 'Pokemon Solid', cursive;
   font-size: 2.5rem;
   font-weight: normal;
-  color: #ffd700;
-  text-shadow: 3px 3px 0px #1a1a2e,
-               -1px -1px 0px #1a1a2e,
-               1px -1px 0px #1a1a2e,
-               -1px 1px 0px #1a1a2e,
-               1px 1px 0px #1a1a2e,
-               4px 4px 8px rgba(0, 0, 0, 0.5);
+  color: #ffcb05;
+  text-shadow: 2px 2px 0px #3563e0,
+               -1px -1px 0px #3563e0,
+               1px -1px 0px #3563e0,
+               -1px 1px 0px #3563e0,
+               1px 1px 0px #3563e0;
   text-align: center;
   flex: 1;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
 }
 
 .score-display {
