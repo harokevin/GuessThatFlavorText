@@ -97,6 +97,10 @@ function App() {
   };
 
   const nextRound = () => {
+    setGameState(prev => ({
+      ...prev,
+      score: 4
+    }));
     fetchNewCard();
   };
 
