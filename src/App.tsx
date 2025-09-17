@@ -136,11 +136,11 @@ function App() {
               </div>
             </div>
 
-            {gameState.gameStatus === 'playing' && (
-              <>
-                <div className="lifelines-section">
-                  <h3>Lifelines (1 point each):</h3>
-                  <div className="lifelines">
+            <div className="lifelines-section">
+              <h3>Lifelines (1 point each):</h3>
+              <div className="lifelines">
+                {gameState.gameStatus === 'playing' ? (
+                  <>
                     <button
                       className={`lifeline ${gameState.usedLifelines.set ? 'used' : ''}`}
                       onClick={() => activateLifeline('set')}
@@ -162,23 +162,37 @@ function App() {
                     >
                       {gameState.usedLifelines.attack ? `Attack: ${getRandomAttack()}` : 'Reveal Attack'}
                     </button>
-                  </div>
-                </div>
+                  </>
+                ) : (
+                  <>
+                    <button className="lifeline used" disabled={true}>
+                      Set: {gameState.currentCard.set_name}
+                    </button>
+                    <button className="lifeline used" disabled={true}>
+                      Stage: {gameState.currentCard.stage}
+                    </button>
+                    <button className="lifeline used" disabled={true}>
+                      Attack: {getRandomAttack()}
+                    </button>
+                  </>
+                )}
+              </div>
+            </div>
 
-                <div className="guess-section">
-                  <input
-                    type="text"
-                    value={gameState.guess}
-                    onChange={(e) => setGameState(prev => ({ ...prev, guess: e.target.value }))}
-                    placeholder="Enter your guess..."
-                    className="guess-input"
-                    onKeyPress={(e) => e.key === 'Enter' && submitGuess()}
-                  />
-                  <button onClick={submitGuess} className="submit-btn">
-                    Submit Guess
-                  </button>
-                </div>
-              </>
+            {gameState.gameStatus === 'playing' && (
+              <div className="guess-section">
+                <input
+                  type="text"
+                  value={gameState.guess}
+                  onChange={(e) => setGameState(prev => ({ ...prev, guess: e.target.value }))}
+                  placeholder="Enter your guess..."
+                  className="guess-input"
+                  onKeyPress={(e) => e.key === 'Enter' && submitGuess()}
+                />
+                <button onClick={submitGuess} className="submit-btn">
+                  Submit Guess
+                </button>
+              </div>
             )}
 
             {gameState.gameStatus !== 'playing' && (
