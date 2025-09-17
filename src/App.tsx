@@ -30,6 +30,8 @@ interface GameState {
   showCard: boolean;
 }
 
+type NavSection = 'game' | 'howToPlay' | 'about' | 'support';
+
 function App() {
   const [gameState, setGameState] = useState<GameState>({
     score: 4,
@@ -41,6 +43,7 @@ function App() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [activeSection, setActiveSection] = useState<NavSection>('game');
 
   const fetchNewCard = async () => {
     setLoading(true);
@@ -114,23 +117,161 @@ function App() {
     return attacks.length > 0 ? attacks[0].name : "No attacks available";
   };
 
+  const renderHowToPlay = () => (
+    <div className="section-content">
+      <h2>How to Play</h2>
+      <div className="instructions">
+        <h3>Objective</h3>
+        <p>Read the Pokemon card's flavor text and guess which Pokemon it belongs to!</p>
+
+        <h3>Scoring</h3>
+        <ul>
+          <li>Start each round with 4 points</li>
+          <li>Each lifeline used costs 1 point</li>
+          <li>Correct answers earn you the remaining points</li>
+        </ul>
+
+        <h3>Lifelines</h3>
+        <ul>
+          <li><strong>Reveal Set:</strong> Shows which Pokemon TCG set the card is from</li>
+          <li><strong>Reveal Stage:</strong> Shows the evolution stage (Basic, Stage 1, Stage 2, etc.)</li>
+          <li><strong>Reveal Attack:</strong> Shows one of the Pokemon's attacks or abilities</li>
+        </ul>
+
+        <h3>Example</h3>
+        <p>You see the flavor text: "It sleeps 18 hours a day. Even when awake, it doesn't move much. It's very lazy."</p>
+        <p>If you're unsure, you could use the "Reveal Stage" lifeline to learn it's a "Basic" Pokemon, then guess "Snorlax"!</p>
+      </div>
+    </div>
+  );
+
+  const renderAbout = () => (
+    <div className="section-content">
+      <h2>About</h2>
+      <div className="about-content">
+        <p>Pokemon Trading Card Game - Flavor Text Challenge is a fun game that tests your knowledge of Pokemon through their card descriptions.</p>
+
+        <h3>What are Flavor Texts?</h3>
+        <p>Flavor texts are the descriptive passages on Pokemon cards that provide background information about each Pokemon. They often describe the Pokemon's behavior, habitat, or unique characteristics.</p>
+
+        <h3>Features</h3>
+        <ul>
+          <li>Random Pokemon cards from various TCG sets</li>
+          <li>Strategic lifeline system for hints</li>
+          <li>Point-based scoring system</li>
+          <li>Full card reveals after each guess</li>
+        </ul>
+
+        <p>Perfect for Pokemon fans who want to test their knowledge beyond just the Pokemon's appearance!</p>
+
+        <h3>Inspiration</h3>
+        <p>This project was inspired by the <a href="https://www.youtube.com/@UncommonEnergyPodcast" target="_blank" rel="noopener noreferrer">Uncommon Energy Podcast</a> and their discussions about Pokemon TCG. This is a personal project and is not affiliated with or endorsed by the podcast.</p>
+
+      </div>
+    </div>
+  );
+
+  const renderSupport = () => (
+    <div className="section-content">
+      <h2>Buy Me a Coffee</h2>
+      <div className="support-content">
+        <p>If you enjoy this game and would like to support its development, you can send a tip through:</p>
+
+        <div className="support-links">
+          <a
+            href="https://paypal.me/harokevin0"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="support-link paypal"
+          >
+            PayPal
+          </a>
+          <a
+            href="https://github.com/sponsors/harokevin"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="support-link github"
+          >
+            GitHub Sponsors
+          </a>
+        </div>
+
+        <p>Your support helps keep this project running and motivates further development!</p>
+        <p>Thank you for playing and for any support you provide! 🙏</p>
+      </div>
+    </div>
+  );
+
   return (
     <div className="app">
-      <header className="game-header">
-        <h1 className="game-title">Guess That Flavor Text</h1>
-        <div className="score-display">Score: {gameState.score}</div>
-      </header>
+      <nav className="side-nav">
+        <div className="nav-header">
+          <h3>Navigation</h3>
+        </div>
+        <ul className="nav-menu">
+          <li>
+            <button
+              className={`nav-item ${activeSection === 'game' ? 'active' : ''}`}
+              onClick={() => setActiveSection('game')}
+            >
+              Play Game
+            </button>
+          </li>
+          <li>
+            <button
+              className={`nav-item ${activeSection === 'howToPlay' ? 'active' : ''}`}
+              onClick={() => setActiveSection('howToPlay')}
+            >
+              How to Play
+            </button>
+          </li>
+          <li>
+            <button
+              className={`nav-item ${activeSection === 'about' ? 'active' : ''}`}
+              onClick={() => setActiveSection('about')}
+            >
+              About
+            </button>
+          </li>
+          <li>
+            <button
+              className={`nav-item ${activeSection === 'support' ? 'active' : ''}`}
+              onClick={() => setActiveSection('support')}
+            >
+              Buy Me a Coffee
+            </button>
+          </li>
+          <li>
+            <a
+              href="https://github.com/harokevin/GuessThatFlavorText"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-item external-link"
+            >
+              GitHub Project
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-      <main className="game-main">
-        {loading ? (
+      <div className="main-content">
+        <header className="game-header">
+          <h1 className="game-title">Pokemon Trading Card Game - Flavor Text Challenge</h1>
+          {activeSection === 'game' && <div className="score-display">Score: {gameState.score}</div>}
+        </header>
+
+        <main className="game-main">
+          {activeSection === 'game' && (
+            <>
+              {loading ? (
           <div className="loading">
             <div className="pokeball-spinner"></div>
-            <p>Loading new card...</p>
+            <p>Loading new Pokemon card...</p>
           </div>
         ) : gameState.currentCard ? (
           <div className="game-content">
             <div className="flavor-text-section">
-              <h2>Flavor Text:</h2>
+              <h2>Pokemon Card Flavor Text:</h2>
               <div className="flavor-text">
                 "{gameState.currentCard.flavor_text}"
               </div>
@@ -185,12 +326,12 @@ function App() {
                   type="text"
                   value={gameState.guess}
                   onChange={(e) => setGameState(prev => ({ ...prev, guess: e.target.value }))}
-                  placeholder="Enter your guess..."
+                  placeholder="Which Pokemon is this?"
                   className="guess-input"
                   onKeyPress={(e) => e.key === 'Enter' && submitGuess()}
                 />
                 <button onClick={submitGuess} className="submit-btn">
-                  Submit Guess
+                  Guess Pokemon
                 </button>
               </div>
             )}
@@ -228,10 +369,17 @@ function App() {
               </div>
             )}
           </div>
-        ) : (
-          <div className="error">Failed to load card. Please try again.</div>
-        )}
-      </main>
+              ) : (
+                <div className="error">Failed to load Pokemon card. Please try again.</div>
+              )}
+            </>
+          )}
+
+          {activeSection === 'howToPlay' && renderHowToPlay()}
+          {activeSection === 'about' && renderAbout()}
+          {activeSection === 'support' && renderSupport()}
+        </main>
+      </div>
     </div>
   );
 }

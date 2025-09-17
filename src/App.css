@@ -13,10 +13,87 @@ body {
 .app {
   min-height: 100vh;
   display: flex;
-  flex-direction: column;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
+}
+
+.side-nav {
+  width: 250px;
+  background: rgba(29, 44, 65, 0.95);
+  backdrop-filter: blur(10px);
+  border-right: 1px solid #4a5568;
+  padding: 2rem 0;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  overflow-y: auto;
+  box-shadow: 4px 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-header {
+  padding: 0 1.5rem 1rem 1.5rem;
+  border-bottom: 1px solid #4a5568;
+  margin-bottom: 1rem;
+}
+
+.nav-header h3 {
+  margin: 0;
+  color: #90cdf4;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.nav-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-menu li {
+  margin-bottom: 0.5rem;
+}
+
+.nav-item {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  color: #e0e0e0;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.nav-item:hover {
+  background: rgba(74, 85, 104, 0.5);
+  color: #90cdf4;
+}
+
+.nav-item.active {
+  background: linear-gradient(45deg, #3182ce, #2c5aa0);
+  color: white;
+  font-weight: bold;
+}
+
+.nav-item.external-link {
+  color: #68d391;
+}
+
+.nav-item.external-link:hover {
+  color: #9ae6b4;
+  background: rgba(56, 161, 105, 0.2);
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 250px;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -310,10 +387,98 @@ body {
   font-size: 1.2rem;
 }
 
+.section-content {
+  background: rgba(45, 55, 72, 0.95);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(74, 85, 104, 0.5);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.section-content h2 {
+  color: #90cdf4;
+  margin: 0 0 1.5rem 0;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.section-content h3 {
+  color: #cbd5e0;
+  margin: 1.5rem 0 0.5rem 0;
+  font-size: 1.3rem;
+}
+
+.section-content p {
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
+.section-content ul {
+  margin: 0.5rem 0 1rem 1.5rem;
+  color: #e0e0e0;
+}
+
+.section-content li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.instructions, .about-content, .support-content {
+  text-align: left;
+}
+
+.support-links {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.support-link {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  min-width: 150px;
+}
+
+.support-link.paypal {
+  background: linear-gradient(45deg, #0070ba, #003087);
+  color: white;
+}
+
+.support-link.paypal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 112, 186, 0.6);
+}
+
+.support-link.github {
+  background: linear-gradient(45deg, #24292e, #586069);
+  color: white;
+}
+
+.support-link.github:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(36, 41, 46, 0.6);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
-  .app {
-    padding: 0.5rem;
+  .side-nav {
+    width: 200px;
+  }
+
+  .main-content {
+    margin-left: 200px;
+    padding: 1rem;
   }
 
   .game-header {
@@ -325,7 +490,7 @@ body {
     font-size: 2rem;
   }
 
-  .game-content {
+  .game-content, .section-content {
     padding: 1.5rem;
   }
 
@@ -340,6 +505,44 @@ body {
   .guess-input, .submit-btn {
     min-width: auto;
     width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .side-nav {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid #4a5568;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .app {
+    flex-direction: column;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  .nav-menu li {
+    margin-bottom: 0;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .nav-item {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    border-radius: 8px;
   }
 }
 
