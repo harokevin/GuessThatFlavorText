@@ -1,0 +1,8 @@
+./layer.zip
+*.zip
+/python
+/dependencies
+/flask-layer
+/mangum-layer
+/serverless-wsgi-layer
+
