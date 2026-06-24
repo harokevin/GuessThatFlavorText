@@ -1,5 +1,7 @@
 # 🎴 Guess That Flavor Text
 
+  https://harokevin.github.io/GuessThatFlavorText/
+
   A fun Pokemon card guessing game where players identify Pokemon cards based on their flavor text. Features a sleek
   dark theme, lifeline system, and responsive design.
 
