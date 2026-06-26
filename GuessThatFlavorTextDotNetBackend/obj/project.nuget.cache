@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "LBUfMpA8Sxw=",
+  "success": true,
+  "projectFilePath": "/Users/harokevin/dev/GuessThatFlavorText/GuessThatFlavorTextDotNetBackend/GuessThatFlavorTextDotNetBackend.csproj",
+  "expectedPackageFiles": [
+    "/Users/harokevin/.nuget/packages/microsoft.aspnetcore.openapi/9.0.17/microsoft.aspnetcore.openapi.9.0.17.nupkg.sha512",
+    "/Users/harokevin/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
