@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
@@ -20,8 +22,22 @@ public class Function1
 
         var response = req.CreateResponse(System.Net.HttpStatusCode.OK);
         response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
-        response.WriteString("Hello from Azure Functions!");
 
+        string? hostJsonPath = Path.Combine(Environment.CurrentDirectory, "host.json");
+        string hostJsonContents;
+
+        if (File.Exists(hostJsonPath))
+        {
+            hostJsonContents = File.ReadAllText(hostJsonPath);
+            _logger.LogInformation("Loaded host.json from {Path}", hostJsonPath);
+        }
+        else
+        {
+            hostJsonContents = "host.json not found.";
+            _logger.LogWarning("Could not find host.json at {Path}", hostJsonPath);
+        }
+
+        response.WriteString($"Hello from Azure Functions!\n\nhost.json contents:\n{hostJsonContents}");
         return response;
     }
 }

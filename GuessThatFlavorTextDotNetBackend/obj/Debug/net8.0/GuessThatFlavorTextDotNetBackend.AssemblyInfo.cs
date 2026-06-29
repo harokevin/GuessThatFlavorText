@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GuessThatFlavorTextDotNetBackend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6dc7b32be17ec8076f72621435ab44ef9ad49bba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eea3bc3fda10d47cb441b7ce7f5d8196fc2bd72c")]
 [assembly: System.Reflection.AssemblyProductAttribute("GuessThatFlavorTextDotNetBackend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GuessThatFlavorTextDotNetBackend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
