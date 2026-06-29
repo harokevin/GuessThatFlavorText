@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "P5dyJDiyzS8=",
+  "dgSpecHash": "hXBAnlJzRPg=",
   "success": true,
   "projectFilePath": "/Users/harokevin/dev/GuessThatFlavorText/GuessThatFlavorTextDotNetBackend/GuessThatFlavorTextDotNetBackend.csproj",
   "expectedPackageFiles": [
@@ -55,10 +55,7 @@
     "/Users/harokevin/.nuget/packages/system.runtime.compilerservices.unsafe/6.0.0/system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
     "/Users/harokevin/.nuget/packages/system.text.encodings.web/6.0.0/system.text.encodings.web.6.0.0.nupkg.sha512",
     "/Users/harokevin/.nuget/packages/system.text.json/6.0.10/system.text.json.6.0.10.nupkg.sha512",
-    "/Users/harokevin/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "/Users/harokevin/.nuget/packages/microsoft.netcore.app.ref/8.0.28/microsoft.netcore.app.ref.8.0.28.nupkg.sha512",
-    "/Users/harokevin/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.28/microsoft.aspnetcore.app.ref.8.0.28.nupkg.sha512",
-    "/Users/harokevin/.nuget/packages/microsoft.netcore.app.host.osx-arm64/8.0.28/microsoft.netcore.app.host.osx-arm64.8.0.28.nupkg.sha512"
+    "/Users/harokevin/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
   ],
   "logs": []
 }
